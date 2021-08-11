@@ -106,3 +106,7 @@
 /home/dimitar/RiderProjects/E-Store/E-Store/obj/Debug/net5.0/E-Store.genruntimeconfig.cache
 /home/dimitar/RiderProjects/E-Store/E-Store/bin/Debug/net5.0/Castle.Core.dll
 /home/dimitar/RiderProjects/E-Store/E-Store/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Proxies.dll
+/home/dimitar/RiderProjects/E-Store/E-Store/obj/Debug/net5.0/Razor/Views/Account/Administration.cshtml.g.cs
+/home/dimitar/RiderProjects/E-Store/E-Store/obj/Debug/net5.0/Razor/Views/Account/ChangePassword.cshtml.g.cs
+/home/dimitar/RiderProjects/E-Store/E-Store/obj/Debug/net5.0/Razor/Views/Account/Login.cshtml.g.cs
+/home/dimitar/RiderProjects/E-Store/E-Store/obj/Debug/net5.0/Razor/Views/Account/Register.cshtml.g.cs
