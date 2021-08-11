@@ -4,6 +4,9 @@ namespace E_Store.Controllers
     using System.Threading.Tasks;
     
     using Models.User;
+    using Classes;
+    using Extensions;
+
     using E_Store.Data.Models;
     
     using Microsoft.AspNetCore.Identity;
@@ -11,6 +14,8 @@ namespace E_Store.Controllers
     using Microsoft.AspNetCore.Authorization;
 
     [Authorize]
+    [Route("[controller]/[action]")]
+    [ExceptionsToMessageFilter]
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> userManager;
@@ -53,6 +58,7 @@ namespace E_Store.Controllers
                 return View(model);
             }
 
+            this.AddFlashMessage("Login successful.", FlashMessageType.Success);
             return RedirectToLocal(returnUrl);
         }
 
