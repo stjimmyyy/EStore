@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - E_Store</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css"/>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @*Edit the homepage link text according to your URL*@
+            <a asp-controller="Home" asp-action="Index" class="navbar-brand">shop.ict.social</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            @*Product search form (we'll add the "Product" controller with the "Index" method later)*@
+            <form asp-controller="Home" asp-action="Index" method="post" class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" name="searchPhrase" class="form-control" id="header-search" placeholder="Product name..." value="">
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+            @*The rest of the menu items*@
+            <ul class="nav navbar-nav">
+                <li><a href="#">Account</a></li>
+                <li><a href="#">Articles</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            @*Button for displaying products in the shopping cart*@
+            <div class="navbar-form navbar-right">
+                <a href="#" class="btn btn-default" style="margin-right:10px;">
+                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Shopping Cart ($0)
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container body-content">
+    @*A bar for displaying the current information*@
+    <div class="alert alert-info">
+        Displaying the current information to the user
+    </div>
+    <div class="row">
+        @*Product category list*@
+        <div class="col-md-3">
+            <div class="well" style="padding: 8px 0;">
+                <nav class="menu-tree" style="margin-left: 5px;">
+                    <h3>Categories</h3>
+                </nav>
+            </div>
+        </div>
+        @*Content section*@
+        <div class="col-md-9">
+            <article>
+                @RenderBody()
+            </article>
+        </div>
+    </div>
+    <hr />        <footer>
+        <p>© @DateTime.Now.Year - <a href="http://www.MedielSoft.cz">Martin Erdt</a> a <a href="https://www.linkedin.com/in/pejsa">Jof</a> pro ITNetwork</p>
+    </footer>
+</div>
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2021 - E_Store - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

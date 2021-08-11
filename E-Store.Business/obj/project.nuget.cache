@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "IclF9BtXIsOcrsbd2Jd9gSCI2tqK50NoEpnK6dysWhUeWovsuvtM8xbBD6kICpqaeHuHTRM9cPLcgBtvxy7ezg==",
+  "success": true,
+  "projectFilePath": "/home/dimitar/RiderProjects/E-Store/E-Store.Business/E-Store.Business.csproj",
+  "expectedPackageFiles": [
+    "/home/dimitar/.nuget/packages/microsoft.aspnetcore.app.ref/5.0.0/microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

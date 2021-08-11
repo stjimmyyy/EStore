@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>E_Store.Business</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Classes" />
+      <Folder Include="Extensions" />
+      <Folder Include="Interfaces" />
+      <Folder Include="Managers" />
+      <Folder Include="Services" />
+    </ItemGroup>
+
+</Project>

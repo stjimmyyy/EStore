@@ -1,0 +1,12 @@
+/home/dimitar/RiderProjects/E-Store/E-Store.Business/bin/Debug/net5.0/E-Store.Business.deps.json
+/home/dimitar/RiderProjects/E-Store/E-Store.Business/bin/Debug/net5.0/E-Store.Business.dll
+/home/dimitar/RiderProjects/E-Store/E-Store.Business/bin/Debug/net5.0/ref/E-Store.Business.dll
+/home/dimitar/RiderProjects/E-Store/E-Store.Business/bin/Debug/net5.0/E-Store.Business.pdb
+/home/dimitar/RiderProjects/E-Store/E-Store.Business/obj/Debug/net5.0/E-Store.Business.csprojAssemblyReference.cache
+/home/dimitar/RiderProjects/E-Store/E-Store.Business/obj/Debug/net5.0/E-Store.Business.GeneratedMSBuildEditorConfig.editorconfig
+/home/dimitar/RiderProjects/E-Store/E-Store.Business/obj/Debug/net5.0/E-Store.Business.AssemblyInfoInputs.cache
+/home/dimitar/RiderProjects/E-Store/E-Store.Business/obj/Debug/net5.0/E-Store.Business.AssemblyInfo.cs
+/home/dimitar/RiderProjects/E-Store/E-Store.Business/obj/Debug/net5.0/E-Store.Business.csproj.CoreCompileInputs.cache
+/home/dimitar/RiderProjects/E-Store/E-Store.Business/obj/Debug/net5.0/E-Store.Business.dll
+/home/dimitar/RiderProjects/E-Store/E-Store.Business/obj/Debug/net5.0/ref/E-Store.Business.dll
+/home/dimitar/RiderProjects/E-Store/E-Store.Business/obj/Debug/net5.0/E-Store.Business.pdb

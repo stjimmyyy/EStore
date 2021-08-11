@@ -1,0 +1,15 @@
+/home/dimitar/RiderProjects/E-Store/E-Store.Data/bin/Debug/net5.0/E-Store.Data.deps.json
+/home/dimitar/RiderProjects/E-Store/E-Store.Data/bin/Debug/net5.0/E-Store.Data.runtimeconfig.json
+/home/dimitar/RiderProjects/E-Store/E-Store.Data/bin/Debug/net5.0/E-Store.Data.runtimeconfig.dev.json
+/home/dimitar/RiderProjects/E-Store/E-Store.Data/bin/Debug/net5.0/E-Store.Data.dll
+/home/dimitar/RiderProjects/E-Store/E-Store.Data/bin/Debug/net5.0/ref/E-Store.Data.dll
+/home/dimitar/RiderProjects/E-Store/E-Store.Data/bin/Debug/net5.0/E-Store.Data.pdb
+/home/dimitar/RiderProjects/E-Store/E-Store.Data/obj/Debug/net5.0/E-Store.Data.csprojAssemblyReference.cache
+/home/dimitar/RiderProjects/E-Store/E-Store.Data/obj/Debug/net5.0/E-Store.Data.GeneratedMSBuildEditorConfig.editorconfig
+/home/dimitar/RiderProjects/E-Store/E-Store.Data/obj/Debug/net5.0/E-Store.Data.AssemblyInfoInputs.cache
+/home/dimitar/RiderProjects/E-Store/E-Store.Data/obj/Debug/net5.0/E-Store.Data.AssemblyInfo.cs
+/home/dimitar/RiderProjects/E-Store/E-Store.Data/obj/Debug/net5.0/E-Store.Data.csproj.CoreCompileInputs.cache
+/home/dimitar/RiderProjects/E-Store/E-Store.Data/obj/Debug/net5.0/E-Store.Data.dll
+/home/dimitar/RiderProjects/E-Store/E-Store.Data/obj/Debug/net5.0/ref/E-Store.Data.dll
+/home/dimitar/RiderProjects/E-Store/E-Store.Data/obj/Debug/net5.0/E-Store.Data.pdb
+/home/dimitar/RiderProjects/E-Store/E-Store.Data/obj/Debug/net5.0/E-Store.Data.genruntimeconfig.cache
