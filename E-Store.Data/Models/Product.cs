@@ -9,6 +9,7 @@ namespace E_Store.Data.Models
         {
             ImagesCount = 0;
             Hidden = false;
+            this.CategoryProducts = new List<CategoryProduct>();
         }
         
         [Key]
@@ -60,7 +61,6 @@ namespace E_Store.Data.Models
         
         [Display(Name = "Hidden")]
         public bool Hidden { get; set; }
-        
         public virtual ICollection<CategoryProduct> CategoryProducts { get; set; }
                
     }

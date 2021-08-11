@@ -6,11 +6,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Classes" />
       <Folder Include="Extensions" />
-      <Folder Include="Interfaces" />
-      <Folder Include="Managers" />
       <Folder Include="Services" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\E-Store.Data\E-Store.Data.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="SixLabors.ImageSharp" Version="1.0.3" />
+      <PackageReference Include="SixLabors.ImageSharp.Web" Version="1.0.3" />
     </ItemGroup>
 
 </Project>

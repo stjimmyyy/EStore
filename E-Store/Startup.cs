@@ -1,7 +1,11 @@
 namespace E_Store
 {
+    using Business.Interfaces;
+    using Business.Managers;
+    using Data.Interfaces.Repositories;
     using Data.Infrastructure.Extensions;
-    
+
+    using Extensions;
     using E_Store.Data.Data;
     using E_Store.Data.Models;
     
@@ -41,6 +45,14 @@ namespace E_Store
                 .AddEntityFrameworkStores<EStoreDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+
+            services.AddScoped<ICategoryManager, CategoryManager>();
+            services.AddScoped<IProductManager, ProductManager>();
+
+            services.AddImageProcessing();
+            
             services.AddMvc(options =>
             {
                 options.Filters.Add<Classes.ExceptionsToMessageFilterAttribute>();

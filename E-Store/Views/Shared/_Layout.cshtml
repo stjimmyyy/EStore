@@ -32,6 +32,8 @@
                     <li><a href="/Account/Administration">Account</a></li>
                     <li><a href="#">Articles</a></li>
                     <li><a href="#">Contact</a></li>
+                    
+                    <li><a asp-controller="Product" asp-action="Manage">Manage</a></li>
                 </ul>
                 @*Button for displaying products in the shopping cart*@
                 <div class="navbar-form navbar-right">
@@ -82,6 +84,8 @@
 </footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.tiny.cloud/1/n8ho8akz12m37l2mpocmkzig88qr36yo9izcbae0l2i1k85x/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="@Url.Content("~/js/initTinyMCE.js")"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>

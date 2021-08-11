@@ -5,29 +5,19 @@ namespace E_Store.Data.Interfaces.Repositories
     using System.Collections.Generic;
     
     using Data;
-
-    using Microsoft.Extensions.Configuration;
     using Microsoft.EntityFrameworkCore;
     
 
     public abstract class BaseRepository<TEntity> : IRepository<TEntity> 
         where TEntity : class
     {
-        protected readonly DbContext context;
+        private readonly EStoreDbContext context;
         protected DbSet<TEntity> dbSet;
 
-        public BaseRepository()
+        public BaseRepository(EStoreDbContext context)
         {
-            var configuration = new ConfigurationBuilder()
-                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                .AddJsonFile("appsettings.json")
-                .Build();
-
-            context = new EStoreDbContext(new DbContextOptionsBuilder<EStoreDbContext>()
-                .UseSqlServer(configuration.GetConnectionString("DefaultConnection"))
-                .Options);
-
-            dbSet = context.Set<TEntity>();
+            this.context = context;
+            dbSet = this.context.Set<TEntity>();
         }
         
         public List<TEntity> GetAll()

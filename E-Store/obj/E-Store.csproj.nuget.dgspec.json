@@ -4,6 +4,81 @@
     "/home/dimitar/RiderProjects/E-Store/E-Store/E-Store.csproj": {}
   },
   "projects": {
+    "/home/dimitar/RiderProjects/E-Store/E-Store.Business/E-Store.Business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/dimitar/RiderProjects/E-Store/E-Store.Business/E-Store.Business.csproj",
+        "projectName": "E-Store.Business",
+        "projectPath": "/home/dimitar/RiderProjects/E-Store/E-Store.Business/E-Store.Business.csproj",
+        "packagesPath": "/home/dimitar/.nuget/packages/",
+        "outputPath": "/home/dimitar/RiderProjects/E-Store/E-Store.Business/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/dimitar/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/home/dimitar/RiderProjects/E-Store/E-Store.Data/E-Store.Data.csproj": {
+                "projectPath": "/home/dimitar/RiderProjects/E-Store/E-Store.Data/E-Store.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "SixLabors.ImageSharp": {
+              "target": "Package",
+              "version": "[1.0.3, )"
+            },
+            "SixLabors.ImageSharp.Web": {
+              "target": "Package",
+              "version": "[1.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.205/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/home/dimitar/RiderProjects/E-Store/E-Store.Data/E-Store.Data.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -117,6 +192,9 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+              "/home/dimitar/RiderProjects/E-Store/E-Store.Business/E-Store.Business.csproj": {
+                "projectPath": "/home/dimitar/RiderProjects/E-Store/E-Store.Business/E-Store.Business.csproj"
+              },
               "/home/dimitar/RiderProjects/E-Store/E-Store.Data/E-Store.Data.csproj": {
                 "projectPath": "/home/dimitar/RiderProjects/E-Store/E-Store.Data/E-Store.Data.csproj"
               }

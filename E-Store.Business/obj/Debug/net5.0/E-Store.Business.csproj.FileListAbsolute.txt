@@ -10,3 +10,6 @@
 /home/dimitar/RiderProjects/E-Store/E-Store.Business/obj/Debug/net5.0/E-Store.Business.dll
 /home/dimitar/RiderProjects/E-Store/E-Store.Business/obj/Debug/net5.0/ref/E-Store.Business.dll
 /home/dimitar/RiderProjects/E-Store/E-Store.Business/obj/Debug/net5.0/E-Store.Business.pdb
+/home/dimitar/RiderProjects/E-Store/E-Store.Business/bin/Debug/net5.0/E-Store.Data.dll
+/home/dimitar/RiderProjects/E-Store/E-Store.Business/bin/Debug/net5.0/E-Store.Data.pdb
+/home/dimitar/RiderProjects/E-Store/E-Store.Business/obj/Debug/net5.0/E-Store.Business.csproj.CopyComplete

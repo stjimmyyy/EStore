@@ -6,6 +6,12 @@ namespace E_Store.Data.Models
 
     public class Category
     {
+        public Category()
+        {
+            this.CategoryProducts = new List<CategoryProduct>();
+            this.ChildCategories = new List<Category>();
+        }
+        
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

@@ -1,3 +1,6 @@
+using E_Store.Business.Managers;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace E_Store.Extensions
 {
     using System.Collections.Generic;
@@ -56,6 +59,11 @@ namespace E_Store.Extensions
             }
 
             return html;
+        }
+
+        public static IServiceCollection AddImageProcessing(this IServiceCollection services)
+        {
+            return ImageManager.ConfigureImageProcessingMiddleware(services);
         }
     }
 }
