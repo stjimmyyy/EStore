@@ -116,3 +116,10 @@
 /home/dimitar/RiderProjects/E-Store/E-Store/bin/Debug/net5.0/Microsoft.IO.RecyclableMemoryStream.dll
 /home/dimitar/RiderProjects/E-Store/E-Store/bin/Debug/net5.0/SixLabors.ImageSharp.dll
 /home/dimitar/RiderProjects/E-Store/E-Store/bin/Debug/net5.0/SixLabors.ImageSharp.Web.dll
+/home/dimitar/RiderProjects/E-Store/E-Store/bin/Debug/net5.0/JetBrains.Annotations.dll
+/home/dimitar/RiderProjects/E-Store/E-Store/bin/Debug/net5.0/X.PagedList.dll
+/home/dimitar/RiderProjects/E-Store/E-Store/bin/Debug/net5.0/X.PagedList.Mvc.Core.dll
+/home/dimitar/RiderProjects/E-Store/E-Store/obj/Debug/net5.0/Razor/Views/Product/Detail.cshtml.g.cs
+/home/dimitar/RiderProjects/E-Store/E-Store/obj/Debug/net5.0/Razor/Views/Product/Index.cshtml.g.cs
+/home/dimitar/RiderProjects/E-Store/E-Store/obj/Debug/net5.0/Razor/Views/Product/_ProductThumbnailAdminPartialView.cshtml.g.cs
+/home/dimitar/RiderProjects/E-Store/E-Store/obj/Debug/net5.0/Razor/Views/Product/_ProductThumbnailUserPartialView.cshtml.g.cs

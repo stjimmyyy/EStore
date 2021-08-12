@@ -36,6 +36,18 @@
                 <textarea asp-for="Product.Description" class="form-control tinymce"></textarea>
                 <span asp-validation-for="Product.Description" class="text-danger"></span>
             </div>
+            <div id="product-images-administration">
+                @{
+                    for (int i = 0; i < Model.Product.ImagesCount; i++)
+                    {
+                        <div>
+                            <img src="/images/products/@(Model.Product.Id)_@(i).jpeg" alt="@Model.Product.Title - @(i+1)" />
+                            <a href="#" data-image-index="@i"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                        </div>
+                    }
+                }
+            </div>
+            
             <div class="form-group">
                 <label asp-for="UploadedImages" class="control-label"></label>
                 <input asp-for="UploadedImages" class="form-control" multiple />
@@ -90,3 +102,33 @@
     </div>
 </div>
 
+@section scripts{
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="@Url.Content("~/js/initTinyMCE.js")"></script>
+    <script>
+    $(document).ready(function () {
+        $("#product-images-administration a").click(function (e) {
+            if (confirm('Are you sure you want to delete the selected preview?')) {
+                var element = $(this);
+                $.post('@Url.Action("DeleteImage")', { productID: $('#Product_ProductId').val(), imageIndex: element.data('image-index') }, function (result) {
+                    // decrement the product IDs after the removed image
+                    var oldUrls = element.parent().nextAll().children("a");
+                    for (var i = 0; i < $(oldUrls).length; i++) {
+                        var newIndex = $(oldUrls[i]).data('image-index') - 1;
+                        $(oldUrls[i]).data('image-index', newIndex);
+                    }
+                    // remove the image preview
+                    element.parent().remove();
+                    // decrement the number of images in the hidden field
+                    var imagesCount = $('#Product_ImagesCount');
+                    var currentVal = parseInt(imagesCount.val());
+                    if (!isNaN(currentVal) && currentVal > 0) {
+                        imagesCount.val(currentVal - 1);
+                    }
+                });
+            }
+        });
+    });
+    </script>
+}

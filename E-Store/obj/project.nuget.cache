@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "/tLSpg/AFtXulMavKk8IPqU8AhzzcA1UnXA/XJNiUkYZ14My9dxseFS0bSQN14uxO8XkiwIxDMI1EQdrGvpDzg==",
+  "dgSpecHash": "584zoMu+HGFE1giVkP7Kh0ylhi2gEG1UCmac22l6riEjTYOwlqlIJNNA0tj5PCoVZsXqIzxEprdwkiPB9u49LQ==",
   "success": true,
   "projectFilePath": "/home/dimitar/RiderProjects/E-Store/E-Store/E-Store.csproj",
   "expectedPackageFiles": [
     "/home/dimitar/.nuget/packages/castle.core/4.4.1/castle.core.4.4.1.nupkg.sha512",
     "/home/dimitar/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
+    "/home/dimitar/.nuget/packages/jetbrains.annotations/2021.1.0/jetbrains.annotations.2021.1.0.nupkg.sha512",
     "/home/dimitar/.nuget/packages/microsoft.aspnetcore.cryptography.internal/5.0.8/microsoft.aspnetcore.cryptography.internal.5.0.8.nupkg.sha512",
     "/home/dimitar/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/5.0.8/microsoft.aspnetcore.cryptography.keyderivation.5.0.8.nupkg.sha512",
     "/home/dimitar/.nuget/packages/microsoft.aspnetcore.diagnostics.entityframeworkcore/5.0.8/microsoft.aspnetcore.diagnostics.entityframeworkcore.5.0.8.nupkg.sha512",
@@ -158,6 +159,8 @@
     "/home/dimitar/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
     "/home/dimitar/.nuget/packages/system.xml.xmldocument/4.3.0/system.xml.xmldocument.4.3.0.nupkg.sha512",
     "/home/dimitar/.nuget/packages/system.xml.xmlserializer/4.3.0/system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "/home/dimitar/.nuget/packages/x.pagedlist/8.1.0/x.pagedlist.8.1.0.nupkg.sha512",
+    "/home/dimitar/.nuget/packages/x.pagedlist.mvc.core/8.1.0/x.pagedlist.mvc.core.8.1.0.nupkg.sha512",
     "/home/dimitar/.nuget/packages/microsoft.aspnetcore.app.ref/5.0.0/microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
   ],
   "logs": []

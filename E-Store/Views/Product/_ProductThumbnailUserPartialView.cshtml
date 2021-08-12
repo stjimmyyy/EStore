@@ -1,0 +1,51 @@
+<div class="thumbnail">
+
+    <div class="product-image text-center">
+        <a href="~/images/products/@Model.Url">
+            @{ string imagePath = Model.ImagesCount > 0 ? "~/images/products/" + Model.ProductId + "_thumb.png" : "~/images/products/no_preview.png";}
+            <img alt="" class="product-image-background" src=@Url.Content(imagePath)>
+        </a>
+    </div>
+
+    <div class="product-caption">
+        <h4>
+            <a href="~/Products/@Model.Url">@Model.Title</a>
+        </h4>
+    </div>
+    <p class="product-description">@Model.ShortDescription</p>
+    <div class="product-price">
+        <h4 class="text-right">
+            @{
+                if (Model.DiscountPercent > 0)
+                {
+                    <span class="pull-left">
+                        <span class="label label-danger">- @Model.DiscountPercent %  </span>
+                        <small><s>@Model.OldPrice.Value USD</s></small>
+                    </span>
+                }
+            }
+            @Model.Price USD
+        </h4>
+    </div>
+    <div class="clear"></div>
+    <div class="ratings">
+        @{
+            if (Model.Stock > 0)
+            {
+                <span class="pull-right label label-success">
+                    @Model.Stock items in stock
+                </span>
+            }
+        }
+        <rating value="@Model.Rating"></rating>
+    </div>
+    <div>
+        <form asp-action="Index" asp-controller="Product" method="post">
+            <div class="form-group">
+                <input type="hidden" name="ProductId" value="@Model.ProductId" />
+                <input type="text" class="form-control input-quantity" name="quantity" value="1" style="float:left" /> pcs
+                <button type="submit" name="add_to_cart" class="btn btn-primary" style="margin-left: 20px;"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to cart</button>
+            </div>
+        </form>
+    </div>
+</div>

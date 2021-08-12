@@ -1,5 +1,6 @@
 namespace E_Store.Business.Managers
 {
+    using System.Linq;
     using System.IO;
     using System;
     using System.Collections.Generic;
@@ -20,9 +21,13 @@ namespace E_Store.Business.Managers
         private const int ProductThumbnailSize = 320;
         
         private readonly IProductRepository productRepository;
+        private readonly IReviewRepository reviewRepository;
 
-        public ProductManager(IProductRepository productRepository) 
-            => this.productRepository = productRepository;
+        public ProductManager(IProductRepository productRepository, IReviewRepository reviewRepository)
+        {
+            this.productRepository = productRepository;
+            this.reviewRepository = reviewRepository;
+        }
 
         public Product FindProductById(int id)
         {
@@ -38,10 +43,18 @@ namespace E_Store.Business.Managers
             product.Id = 0;
             this.productRepository.Insert(product);
 
-            if (oldProduct != null)
-            {
-                CleanProduct(oldProduct);
-            }
+           if (oldProduct == null)
+               return;
+           
+           CleanProduct(oldProduct);
+
+           var productReviews = this.reviewRepository.FindByProductId(oldProduct.Id).ToList();
+
+           foreach (var review in productReviews)
+           {
+               review.ProductId = product.Id;
+               this.reviewRepository.Update(review);
+           }
         }
 
         public void SaveProductImages(Product product, List<IFormFile> images, int? oldProductId, int? oldImagesCount)
@@ -114,7 +127,58 @@ namespace E_Store.Business.Managers
             product.ImagesCount--;
             this.productRepository.Update(product);
         }
-        private void CleanProduct(Product oldProduct, bool removeImages = false)
+
+        public List<Product> FindByCategoryId(int categoryId)
+        {
+            return this.productRepository.FindByCategoryId(categoryId);
+        }
+
+        public List<Product> SearchProducts(string searchPhrase)
+        {
+            return this.productRepository.SearchProducts(searchPhrase);
+        }
+
+        public List<Product> SearchProducts
+        (
+            string searchPhrase,
+            int? categoryId,
+            string orderBy = "rating",
+            decimal startPrice = 0,
+            decimal endPrice = 0,
+            bool inStock = false
+        )
+        {
+            var result = SearchProducts(searchPhrase);
+
+            if (categoryId.HasValue)
+            {
+                result = result
+                    .Where(x => x.CategoryProducts
+                        .Select(c => c.CategoryId)
+                        .Contains(categoryId.Value))
+                    .ToList();
+            }
+            
+            if (startPrice > 0)
+                result = result.Where(x => x.Price >= startPrice).ToList();
+
+            if (endPrice > 0)
+                result = result.Where(x => x.Price <= endPrice).ToList();
+
+            if (inStock)
+                result = result.Where(x => x.Stock > 0).ToList();
+
+            result = orderBy.ToLower() switch
+            {
+                "lowest_price" => result.OrderBy(x => x.Price).ToList(),
+                "highest_price" => result.OrderByDescending(x => x.Price).ToList(),
+                "newest" => result.OrderByDescending(x => x.Id).ToList(),
+                _ => result.OrderByDescending(x => x.Rating).ThenByDescending(x => x.Id).ToList()
+            };
+
+            return result;
+        }
+        public void CleanProduct(Product oldProduct, bool removeImages = false)
         {
             try
             {
@@ -138,6 +202,15 @@ namespace E_Store.Business.Managers
                 }
             }
         }
+
+        public void AddToStock(int productId, int quantity)
+        {
+            var product = this.productRepository.FindById(productId);
+
+            product.Stock += quantity;
+            productRepository.Update(product);
+        }
+
         private string GetImageFileName(int productId, int imageIndex, bool full = true)
         {
             var result = $"{productId}_{imageIndex}";

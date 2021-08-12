@@ -8,5 +8,7 @@ namespace E_Store.Data.Interfaces.Repositories
     {
         List<Category> GetLeaves();
 
+        List<Category> GetRoots();
+
     }
 }

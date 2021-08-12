@@ -1,3 +1,5 @@
+using Microsoft.Extensions.Caching.Memory;
+
 namespace E_Store.Business.Managers
 {
     using System;
@@ -12,11 +14,15 @@ namespace E_Store.Business.Managers
     {
         private readonly ICategoryRepository categoryRepository;
         private readonly IProductRepository productRepository;
+        private readonly IMemoryCache memoryCache;
 
-        public CategoryManager(ICategoryRepository categoryRepository, IProductRepository productRepository)
+        public CategoryManager(ICategoryRepository categoryRepository,
+            IProductRepository productRepository, 
+            IMemoryCache memoryCache)
         {
             this.categoryRepository = categoryRepository;
             this.productRepository = productRepository;
+            this.memoryCache = memoryCache;
         }
         
         public List<Category> GetLeaves()
@@ -56,6 +62,17 @@ namespace E_Store.Business.Managers
             }
             
             productRepository.Update(product);
+        }
+        public List<Category> GetRoots()
+        {
+            if (!this.memoryCache.TryGetValue("CategoryRoots", out List<Category> result))
+            {
+                result = categoryRepository.GetRoots().ToList();
+                this.memoryCache.Set("CategoryRoots", result,
+                    new DateTimeOffset(DateTime.Now.AddHours(1)));
+            }
+
+            return result;
         }
     }
 }

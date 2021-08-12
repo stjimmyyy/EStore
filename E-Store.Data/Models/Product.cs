@@ -1,5 +1,7 @@
 namespace E_Store.Data.Models
 {
+    using System;
+    using System.Linq;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -61,7 +63,16 @@ namespace E_Store.Data.Models
         
         [Display(Name = "Hidden")]
         public bool Hidden { get; set; }
+
+        [NotMapped] 
+        public double Rating => Reviews.Count == 0 ? 0 : Reviews.Average(x => x.Rating);
+        public int DiscountPercent => OldPrice.HasValue && OldPrice.Value > Price
+            ? (int) Math.Round((OldPrice.Value - Price) / OldPrice.Value * 100)
+            : 0;
         public virtual ICollection<CategoryProduct> CategoryProducts { get; set; }
-               
+
+        public virtual ICollection<Review> Reviews { get; set; } = new List<Review>();
+        
+
     }
 }

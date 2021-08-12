@@ -14,6 +14,7 @@ namespace E_Store
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
+    using Microsoft.EntityFrameworkCore.Diagnostics;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     public class Startup
@@ -31,7 +32,9 @@ namespace E_Store
 
             services.AddDbContext<EStoreDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
-                    .UseLazyLoadingProxies());
+                    .UseLazyLoadingProxies()
+                    .ConfigureWarnings(x => 
+                        x.Ignore(CoreEventId.LazyLoadOnDisposedContextWarning)));
             
             services.AddDatabaseDeveloperPageExceptionFilter();
             
@@ -47,11 +50,13 @@ namespace E_Store
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
-
+            services.AddScoped<IReviewRepository, ReviewRepository>();
+            
             services.AddScoped<ICategoryManager, CategoryManager>();
             services.AddScoped<IProductManager, ProductManager>();
 
             services.AddImageProcessing();
+            services.AddMemoryCache();
             
             services.AddMvc(options =>
             {
@@ -89,6 +94,12 @@ namespace E_Store
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "ProductDetail",
+                    pattern: "Products/{url}",
+                    defaults: new {controller = "Product", action = "Detail", url = ""});
+                
                 endpoints.MapRazorPages();
             });
         }

@@ -22,5 +22,12 @@ namespace E_Store.Data.Interfaces.Repositories
                 .Where(x => x.ChildCategories.Count == 0 && !x.Hidden)
                 .ToList();
         }
+
+        public List<Category> GetRoots()
+        {
+            return dbSet.Where(x => x.ParentCategoryId == null && !x.Hidden)
+                .OrderBy(x => x.OrderNo)
+                .ToList();
+        }
     }
 }

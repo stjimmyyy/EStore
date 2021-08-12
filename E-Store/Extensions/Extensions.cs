@@ -35,31 +35,7 @@ namespace E_Store.Extensions
         {
             tempData[key] = JsonConvert.SerializeObject(obj, Formatting.Indented);
         }
-
-        public static IHtmlContent RenderFlashMessages(this IHtmlHelper helper)
-        {
-            //we can find an array with all the messages in the json format under the "Messages" key, we deserialize it using the extension method
-            // Note: If we didn't store any messages, the method returns an empty List instance - which doesn't matter at all
-
-            var messagesList = helper.ViewContext.TempData
-                .DeserializeToObject<List<FlashMessage>>("Messages");
-
-            var html = new HtmlContentBuilder();
-            
-            // Iterating through all the messages and generating HTML
-
-            foreach (var msg in messagesList)
-            {
-                var container = new TagBuilder("div");
-                
-                container.AddCssClass($"alert alert-{ msg.Type.ToString().ToLower() }"); //adding bootstrap css
-                container.InnerHtml.SetContent(msg.Message);
-
-                html.AppendHtml(container);
-            }
-
-            return html;
-        }
+        
 
         public static IServiceCollection AddImageProcessing(this IServiceCollection services)
         {

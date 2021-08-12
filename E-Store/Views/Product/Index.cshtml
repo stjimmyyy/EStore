@@ -1,0 +1,78 @@
+@model E_Store.Models.Product.ProductIndexViewModel
+@using X.PagedList.Mvc.Core;
+
+<link href="~/css/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/css/ProductIndex.css" rel="stylesheet" />
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<form asp-action="Index" asp-controller="Product" method="get">
+    <div class="form-inline">
+        <p></p>
+        <div class="form-component" style="float:left">
+            <input asp-for="CurrentCategoryId" type="hidden" />
+            <input asp-for="CurrentPhrase" type="hidden" />
+        </div>
+        <div class="form-component" style="float:left">
+            <label asp-for="SortCriteria">Sort by</label>
+            <select asp-for="SortCriteria" asp-items="Model.SortList" class="form-control"></select>
+        </div>
+        <div class="form-component" style="float:left">
+            <label asp-for="StartPrice">Price from</label>
+            <input asp-for="StartPrice" class="form-control" />
+        </div>
+        <div class="form-component" style="float:left">
+            <label asp-for="EndPrice">Price to</label>
+            <input asp-for="EndPrice" class="form-control" />
+        </div>
+        <div class="form-component">
+            <label asp-for="InStock">In stock</label>
+            <input asp-for="InStock" class="form-control"/>
+        </div>
+        <div class="form-buttons" style="float:left">
+            <input name="filter" id="filter" value="Filter" type="submit" class="btn btn-primary" />
+        </div>
+        <div style="clear:both"></div>
+        <p></p>
+    </div>
+</form>
+
+@{
+    foreach (var p in Model.Products)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            @{
+                if (this.Context.User.IsInRole("Admin"))
+                {
+                    @await Html.PartialAsync("_ProductThumbnailAdminPartialView", p)
+                }
+                else
+                {
+                    @await Html.PartialAsync("_ProductThumbnailUserPartialView", p)
+                }
+            }
+        </div>
+    }
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 text-center">
+            Page @Model.Products.PageNumber z @Model.Products.PageCount
+            @Html.PagedListPager(Model.Products, page => Url.Action("Index",
+                new
+                {
+                    page,
+                    Model.CurrentCategoryId,
+                    Model.CurrentPhrase,
+                    Model.StartPrice,
+                    Model.EndPrice,
+                    Model.SortCriteria,
+                    Model.InStock
+                }))
+        </div>
+    </div>
+</div>
+<script src="~/js/attach.js"></script>

@@ -6,7 +6,8 @@ namespace E_Store.Business.Interfaces
     public interface ICategoryManager
     {
         List<Category> GetLeaves();
-
         void UpdateProductCategories(int productId, int[] categories);
+
+        List<Category> GetRoots();
     }
 }
