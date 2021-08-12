@@ -1,7 +1,7 @@
-using System.Linq;
-
 namespace E_Store.Data.Data
 {
+    using System.Linq;
+    
     using Models;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;

@@ -19,7 +19,7 @@ namespace E_Store.Data.Models
         [Required(ErrorMessage = "Enter the registry number")]
         [Display(Name = "Registry number")]
         [Range(1, int.MaxValue, ErrorMessage = "The registry number cannot be negative")]
-        public string RegistryNumber { get; set; }
+        public int RegistryNumber { get; set; }
         
         [Display(Name = "Orientation Number")]
         [Range(1, int.MaxValue, ErrorMessage = "The orientation number cannot be negative")]
