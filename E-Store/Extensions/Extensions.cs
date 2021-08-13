@@ -1,16 +1,15 @@
-using E_Store.Business.Managers;
-using Microsoft.Extensions.DependencyInjection;
-
 namespace E_Store.Extensions
 {
-    using System.Collections.Generic;
+    using System;
     
-    using Classes;
-
     using Newtonsoft.Json;
-    
+
+    using Business.Managers;
+
     using Microsoft.AspNetCore.Html;
+    using Microsoft.AspNetCore.Mvc.Razor;
     using Microsoft.AspNetCore.Mvc.Rendering;
+    using Microsoft.Extensions.DependencyInjection;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
     public static class Extensions
@@ -30,16 +29,35 @@ namespace E_Store.Extensions
 
             return result;
         }
-
         public static void SerializeObject<T>(this ITempDataDictionary tempData, T obj, string key)
         {
             tempData[key] = JsonConvert.SerializeObject(obj, Formatting.Indented);
         }
-        
-
         public static IServiceCollection AddImageProcessing(this IServiceCollection services)
         {
             return ImageManager.ConfigureImageProcessingMiddleware(services);
+        }
+
+        public static IHtmlContent Script(this IHtmlHelper helper, Func<object, HelperResult> template)
+        {
+            helper.ViewContext.HttpContext.Items["_script_" + Guid.NewGuid()] = template;
+            return new StringHtmlContent(string.Empty);
+        }
+
+        public static IHtmlContent RenderScripts(this IHtmlHelper helper)
+        {
+            foreach (object key in helper.ViewContext.HttpContext.Items.Keys)
+            {
+                if (key.ToString().StartsWith("_script_"))
+                {
+                    if (helper.ViewContext.HttpContext.Items[key] is Func<object, HelperResult> template)
+                    {
+                        helper.ViewContext.Writer.Write(template(null));
+                    }
+                }
+            }
+
+            return new StringHtmlContent(string.Empty);
         }
     }
 }

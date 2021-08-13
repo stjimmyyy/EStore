@@ -1,0 +1,136 @@
+@using E_Store.Extensions
+@model BasePersonViewModel
+
+<h3>Person</h3>
+<div class="form-group">
+    <label asp-for="Email" ></label>
+    <input asp-for="Email" class="form-control"/>
+    <span asp-validation-for="Email" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="FirstName" ></label>
+    <input asp-for="FirstName" class="form-control"/>
+    <span asp-validation-for="FirstName" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="LastName" ></label>
+    <input asp-for="LastName" class="form-control"/>
+    <span asp-validation-for="LastName" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="CompanyName" ></label>
+    <input asp-for="CompanyName" class="form-control"/>
+    <span asp-validation-for="CompanyName" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="IdentificationNumber" ></label>
+    <input asp-for="IdentificationNumber" class="form-control"/>
+    <span asp-validation-for="IdentificationNumber" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="TaxNumber" ></label>
+    <input asp-for="TaxNumber" class="form-control"/>
+    <span asp-validation-for="TaxNumber" class="text-danger"></span>
+</div>
+
+<h3>Contact data</h3>
+
+<div class="form-group">
+    <label asp-for="Phone" ></label>
+    <input asp-for="Phone" class="form-control"/>
+    <span asp-validation-for="Phone" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Fax" ></label>
+    <input asp-for="Fax" class="form-control"/>
+    <span asp-validation-for="Fax" class="text-danger"></span>
+</div>
+
+<h3>Address</h3>
+
+<div class="form-group">
+    <label asp-for="Street" ></label>
+    <input asp-for="Street" class="form-control"/>
+    <span asp-validation-for="Street" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="RegistryNumber" ></label>
+    <input asp-for="RegistryNumber" class="form-control"/>
+    <span asp-validation-for="RegistryNumber" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="OrientationNumber" ></label>
+    <input asp-for="OrientationNumber" class="form-control"/>
+    <span asp-validation-for="OrientationNumber" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="City" ></label>
+    <input asp-for="City" class="form-control"/>
+    <span asp-validation-for="City" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Zip" ></label>
+    <input asp-for="Zip" class="form-control"/>
+    <span asp-validation-for="Zip" class="text-danger"></span>
+</div>
+
+<div class="form-group"> 
+     <label asp-for="AddressCountryId"></label> 
+     @Html.DropDownListFor(x => x.AddressCountryId, Model.Countries, new { @class = "form-control" }) 
+     <span asp-validation-for="AddressCountryId" class="text-danger"></span>
+</div> 
+
+<div class="form-group">
+    <label asp-for="DeliveryAddressIsAddress"></label>
+    <input asp-for="DeliveryAddressIsAddress" onchange="deliveryAddressControls()" style="margin-left:6px;" />
+</div>
+
+<div id="delivery-address-controls">
+    <h3>Delivery address</h3>
+
+    <div class="form-group">
+        <label asp-for="StreetDelivery" ></label>
+        <input asp-for="StreetDelivery" class="form-control"/>
+        <span asp-validation-for="StreetDelivery" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="RegistryNumberDelivery" ></label>
+        <input asp-for="RegistryNumberDelivery" class="form-control"/>
+        <span asp-validation-for="RegistryNumberDelivery" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="OrientationNumberDelivery" ></label>
+        <input asp-for="OrientationNumberDelivery" class="form-control"/>
+        <span asp-validation-for="OrientationNumberDelivery" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CityDelivery" ></label>
+        <input asp-for="CityDelivery" class="form-control"/>
+        <span asp-validation-for="CityDelivery" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ZipDelivery" ></label>
+        <input asp-for="ZipDelivery" class="form-control"/>
+        <span asp-validation-for="ZipDelivery" class="text-danger"></span>
+    </div>
+    
+     <div class="form-group"> 
+         <label asp-for="CountryIdDelivery" ></label> 
+         @Html.DropDownListFor(x => x.CountryIdDelivery, Model.Countries, new { @class = "form-control" })
+         <span asp-validation-for="CountryIdDelivery" class="text-danger"></span>
+     </div> 
+</div>
+@Html.Script(
+    @<script>
+
+        function deliveryAddressControls() {
+            if (document.getElementById('Delivery_Address_Is_Address').checked) {
+                $("#delivery-address-controls").hide()
+            } else {
+                $('#delivery-address-controls').show()
+            }
+        }
+
+        deliveryAddressControls()
+    </script>
+    )

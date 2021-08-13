@@ -1,7 +1,8 @@
 namespace E_Store.Data.Interfaces.Repositories
 {
-    public interface IPersonRepository
+    using Models;
+    public interface IPersonRepository : IRepository<Person>
     {
-        
+        Person FindByUserId(string id);
     }
 }

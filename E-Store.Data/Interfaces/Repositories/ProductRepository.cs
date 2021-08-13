@@ -15,7 +15,7 @@ namespace E_Store.Data.Interfaces.Repositories
         }
         public Product FindByUrl(string url)
         {
-            return dbSet
+            return this.dbSet
                 .Where(p => p.Url == url && !p.Hidden)
                 .Select(p => p)
                 .FirstOrDefault();

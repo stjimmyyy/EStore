@@ -7,7 +7,6 @@ namespace E_Store.Data.Interfaces.Repositories
     using Data;
     using Microsoft.EntityFrameworkCore;
     
-
     public abstract class BaseRepository<TEntity> : IRepository<TEntity> 
         where TEntity : class
     {

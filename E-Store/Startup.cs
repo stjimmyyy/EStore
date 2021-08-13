@@ -51,10 +51,15 @@ namespace E_Store
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IReviewRepository, ReviewRepository>();
+            services.AddScoped<IReadOnlyRepository, ReadOnlyRepository>();
             
             services.AddScoped<ICategoryManager, CategoryManager>();
             services.AddScoped<IProductManager, ProductManager>();
+            services.AddScoped<IReadOnlyManager, ReadOnlyManager>();
 
+
+            services.AddAutoMapper(typeof(Startup));
+            
             services.AddImageProcessing();
             services.AddMemoryCache();
             
