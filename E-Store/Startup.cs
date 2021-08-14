@@ -57,6 +57,8 @@ namespace E_Store
             services.AddScoped<IPersonDetailRepository, PersonDetailRepository>();
             services.AddScoped<IAddressRepository, AddressRepository>();
             services.AddScoped<IBankAccountRepository, BankAccountRepository>();
+            services.AddScoped<IEOrderRepository, EOrderRepository>();
+            services.AddScoped<IProductEOrderRepository, ProductEOrderRepository>();
             
             services.AddScoped<ICategoryManager, CategoryManager>();
             services.AddScoped<IProductManager, ProductManager>();
@@ -68,12 +70,14 @@ namespace E_Store
             services.AddAutoMapper(typeof(Startup));
             
             services.AddImageProcessing();
-            services.AddMemoryCache();
             
             services.AddMvc(options =>
             {
                 options.Filters.Add<Classes.ExceptionsToMessageFilterAttribute>();
             });
+
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -101,6 +105,7 @@ namespace E_Store
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
