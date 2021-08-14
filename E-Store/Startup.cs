@@ -52,10 +52,17 @@ namespace E_Store
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IReviewRepository, ReviewRepository>();
             services.AddScoped<IReadOnlyRepository, ReadOnlyRepository>();
+            services.AddScoped<IAccountingSettingRepository, AccountingSettingRepository>();
+            services.AddScoped<IPersonRepository, PersonRepository>();
+            services.AddScoped<IPersonDetailRepository, PersonDetailRepository>();
+            services.AddScoped<IAddressRepository, AddressRepository>();
+            services.AddScoped<IBankAccountRepository, BankAccountRepository>();
             
             services.AddScoped<ICategoryManager, CategoryManager>();
             services.AddScoped<IProductManager, ProductManager>();
             services.AddScoped<IReadOnlyManager, ReadOnlyManager>();
+            services.AddScoped<IPersonManager, PersonManager>();
+            services.AddScoped<IAccountingSettingManager, AccountingSettingManager>();
 
 
             services.AddAutoMapper(typeof(Startup));

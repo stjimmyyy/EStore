@@ -1,7 +1,6 @@
-using System.Linq;
-
 namespace E_Store.Extensions
 {
+    using System.Linq;
     using System.Collections.Generic;
 
     using E_Store.Data.Models;

@@ -127,3 +127,4 @@
 /home/dimitar/RiderProjects/E-Store/E-Store/bin/Debug/net5.0/AutoMapper.dll
 /home/dimitar/RiderProjects/E-Store/E-Store/bin/Debug/net5.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 /home/dimitar/RiderProjects/E-Store/E-Store/obj/Debug/net5.0/Razor/Views/Account/Edit.cshtml.g.cs
+/home/dimitar/RiderProjects/E-Store/E-Store/obj/Debug/net5.0/Razor/Views/Setting/Index.cshtml.g.cs

@@ -18,16 +18,16 @@ namespace E_Store.Data.Data
         public DbSet<Review> Reviews { get; set; }
         
         public DbSet<Address> Addresses { get; set; }
-        
         public DbSet<Bank> Banks { get; set; }
         
         public DbSet<BankAccount> BankAccounts { get; set; }
-        
         public DbSet<Country> Countries { get; set; }
         
         public DbSet<Person> People { get; set; }
         
         public DbSet<PersonDetail> PersonDetails { get; set; }
+        
+        public DbSet<AccountingSetting> AccountingSettings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -19,6 +19,37 @@ namespace E_Store.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("E_Store.Data.Models.AccountingSetting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AccountantDetailId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SellerId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ValidFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ValidTo")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Vat")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountantDetailId");
+
+                    b.HasIndex("SellerId");
+
+                    b.ToTable("AccountingSettings");
+                });
+
             modelBuilder.Entity("E_Store.Data.Models.Address", b =>
                 {
                     b.Property<int>("Id")
@@ -528,6 +559,25 @@ namespace E_Store.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("E_Store.Data.Models.AccountingSetting", b =>
+                {
+                    b.HasOne("E_Store.Data.Models.PersonDetail", "AccountantDetail")
+                        .WithMany()
+                        .HasForeignKey("AccountantDetailId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("E_Store.Data.Models.Person", "Seller")
+                        .WithMany()
+                        .HasForeignKey("SellerId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("AccountantDetail");
+
+                    b.Navigation("Seller");
                 });
 
             modelBuilder.Entity("E_Store.Data.Models.Address", b =>

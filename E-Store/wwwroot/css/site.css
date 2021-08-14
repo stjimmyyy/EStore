@@ -73,3 +73,23 @@ body {
 #header-search {
   width: 128px;
 }
+
+#footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+#layout-container {
+  position: relative;
+  top: 100px;
+}
+
+#cart-icon{
+  font-size: 17px;
+  position: relative;
+  right: 5px;
+}

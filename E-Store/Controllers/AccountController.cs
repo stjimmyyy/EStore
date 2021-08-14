@@ -126,7 +126,7 @@ namespace E_Store.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             return View(model);
         }
-        private object InsertOrEditPerson(BasePersonViewModel model, string userId = null, int? personId = null)
+        private Person InsertOrEditPerson(BasePersonViewModel model, string userId = null, int? personId = null)
         {
             var personDetail = this.mapper.Map<PersonDetail>(model);
             var address = this.mapper.Map<Address>(model);

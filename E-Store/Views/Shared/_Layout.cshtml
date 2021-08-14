@@ -9,83 +9,79 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Eshop</title>
-
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-        <link href="~/css/ProductManage.css" rel="stylesheet" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-    </environment>
+    <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
-<body>
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div>
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            @*Edit the homepage link text according to your URL*@
-            <a asp-controller="Home" asp-action="Index" class="navbar-brand">E-Furniture</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            @*Product search form (we'll add the "Product" controller with the "Index" method later)*@
-            <form asp-controller="Home" asp-action="Index" method="post" class="navbar-form navbar-left">
-                <div class="form-group">
-                    <input type="text" name="searchPhrase" class="form-control" id="header-search" placeholder="Product name..." value="">
+<body class="d-flex flex-column">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*Edit the homepage link text according to your URL*@
+                <a asp-controller="Home" asp-action="Index" class="navbar-brand">shop.ict.social</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                @*Product search form (we'll add the "Product" controller with the "Index" method later)*@
+                <form asp-controller="Product" asp-action="Index" method="post" class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" name="searchPhrase" class="form-control" id="header-search" placeholder="Product name..." value="">
+                    </div>
+                    <button type="submit" class="btn btn-default">Search</button>
+                </form>
+                @*The rest of the menu items*@
+                <ul class="nav navbar-nav">
+                    <li><a href="/Account/Administration">Account</a></li>
+                    <li><a href="#">Articles</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                @*Button for displaying products in the shopping cart*@
+                <div class="navbar-form navbar-right">
+                    <a href="#" class="btn btn-default" style="margin-right:10px;">
+                        <i id="cart-icon" class="fa fa-shopping-cart" aria-hidden="true"></i>Shopping Cart ($0)
+                    </a>
                 </div>
-                <button type="submit" class="btn btn-default">Search</button>
-            </form>
-            @*The rest of the menu items*@
-            <ul class="nav navbar-nav">
-                <li><a href="/Account/Administration">Account</a></li>
-                <li><a href="#">Articles</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            @*Button for displaying products in the shopping cart*@
-            <div class="navbar-form navbar-right">
-                <a href="#" class="btn btn-default" style="margin-right:10px;">
-                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Shopping Cart ($0)
-                </a>
             </div>
         </div>
     </div>
-</div>
-<div class="container body-content">
-    @*A bar for displaying the current information*@
-    @Html.RenderFlashMessages()
-    <div class="row">
-        @*Product category list*@
-        <div class="col-md-3">
-            <div class="well" style="padding: 8px 0;">
-                <nav class="menu-tree" style="margin-left: 5px;">
-                    @Html.RenderCategories(Context.RequestServices.GetService<ICategoryManager>()?.GetRoots())
-                </nav>
+    <div class="container" id="layout-container">
+        @*A bar for displaying the current information*@
+        @Html.RenderFlashMessages()
+        <div class="row">
+            @*Product category list*@
+            <div class="col-md-3">
+                <div class="well" style="padding: 8px 0;">
+                    <nav class="menu-tree" style="margin-left: 5px;">
+                        @Html.RenderCategories(Context.RequestServices.GetService<ICategoryManager>().GetRoots())
+                    </nav>
+                </div>
+            </div>
+            @*Content section*@
+            <div class="col-md-9">
+                <article>
+                    @RenderBody()
+                </article>
             </div>
         </div>
-        @*Content section*@
-        <div class="col-md-9">
-            <article>
-                @RenderBody()
-            </article>
-        </div>
+        <hr />
+        @*Footer*@
+        <footer class="text-center">
+            <p>© @DateTime.Now.Year - <a href="http://www.MedielSoft.cz">Martin Erdt</a> and <a href="https://www.linkedin.com/in/pejsa">Jof</a> for ICT.social</p>
+        </footer>
     </div>
-    <hr />
-    @*Footer*@
-    <footer>
-        <p>© @DateTime.Now.Year - <a href="https://www.facebook.com">Martin Erdt</a> and <a href="https://www.linkedin.com/in/pejsa">Jof</a> for ICT.social</p>
-    </footer>
-</div>
 
 <environment include="Development">
     ...
 </environment>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.usebootstrap.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
-@Html.RenderScripts()
+
 </body>
 </html>

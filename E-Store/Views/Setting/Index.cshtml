@@ -1,0 +1,111 @@
+@model SettingViewModel
+@{
+    ViewData["Title"] = "Accounting settings";
+}
+
+<h2>@ViewData["Title"]</h2>
+<section>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th><label asp-for="Entity.ValidFrom"></label></th>
+            <th><label asp-for="Entity.ValidTo"></label></th>
+            <th><label asp-for="Entity.Vat"></label></th>
+            <th><label asp-for="Entity.AccountantDetailId"></label></th>
+            <th><label asp-for="Entity.SellerId"></label></th>
+            <th>Signature</th>
+            <th></th>
+        </tr>
+        @{
+            foreach (var s in Model.AllSettings)
+            {
+                <tr>
+                    <td>
+                        @s.ValidFrom.ToShortDateString()
+                    </td>
+                    <td>
+                        @s.ValidTo.ToShortDateString()
+                    </td>
+                    <td>
+                        @s.Vat
+                    </td>
+                    <td>
+                        @s.AccountantDetail.FullName
+                    </td>
+                    <td>
+                        @s.Seller.User.UserName
+                    </td>
+                    <td>
+                        @{ string path = "/images/signatures/" + s.Id + ".png"; }
+                        <img src=@path />
+                    </td>
+                    <td>
+                        <a asp-action="Delete" asp-controller="Setting" asp-route-id="@s.Id" data-confirm="Are you sure you want to delete the setting for the given period? (may cause invalid rendering of old invoices)">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+
+    <form asp-action="Create" asp-controller="Setting" method="post" enctype="multipart/form-data">
+
+        <div class="row">
+            <div class="form-group">
+                <label asp-for="Entity.ValidFrom" class="control-label col-md-2"></label>
+                <div class="col-md-10">
+                    <input asp-for="Entity.ValidFrom" class="form-control" placeholder="dd.mm.yyyy" value="" />
+                    <span asp-validation-for="Entity.ValidFrom" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Entity.ValidTo" class="control-label col-md-2"></label>
+                <div class="col-md-10">
+                    <input asp-for="Entity.ValidTo" class="form-control" placeholder="dd.mm.yyyy" value="" />
+                    <span asp-validation-for="Entity.ValidTo" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Entity.Vat" class="control-label col-md-2"></label>
+                <div class="col-md-10">
+                    <input asp-for="Entity.Vat" class="form-control" type="number" />
+                    <span asp-validation-for="Entity.Vat" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Entity.AccountantDetailId" class="control-label col-md-2"></label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(x => x.Entity.AccountantDetailId, Model.Accountants, new { @class = "form-control" })
+                    <span asp-validation-for="Entity.AccountantDetailId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Entity.SellerId" class="control-label col-md-2"></label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(x => x.Entity.SellerId, Model.Sellers, new { @class = "form-control" })
+                    <span asp-validation-for="Entity.SellerId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UploadedImage" class="control-label col-md-2"></label>
+                <div class="col-md-10">
+                    <input asp-for="UploadedImage" class="form-control" />
+                    <span asp-validation-for="UploadedImage" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-buttons">
+            <input name="add" id="add" value="Add" type="submit" class="btn btn-primary" />
+        </div>
+    </form>
+</section>
+
+@section scripts{
+    <script src="~/js/data-confirm.js"></script>
+}

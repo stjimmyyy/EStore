@@ -47,8 +47,15 @@ using E_Store.Models.Person;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "/home/dimitar/RiderProjects/E-Store/E-Store/Views/_ViewImports.cshtml"
+using E_Store.Models.Setting;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5405cb1cb84b64ddd1a9e4a33794be06c6f07c91", @"/Views/Product/_ProductThumbnailUserPartialView.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7feb16b69d71633aa9713f0953a224a087371c93", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a42775dd580e916de7f010862b646ae88f29dedb", @"/Views/_ViewImports.cshtml")]
     public class Views_Product__ProductThumbnailUserPartialView : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Index", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -81,7 +88,7 @@ using E_Store.Models.Person;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("<div class=\"thumbnail\">\n\n    <div class=\"product-image text-center\">\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5405cb1cb84b64ddd1a9e4a33794be06c6f07c914913", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5405cb1cb84b64ddd1a9e4a33794be06c6f07c915087", async() => {
                 WriteLiteral("\n");
 #nullable restore
 #line 5 "/home/dimitar/RiderProjects/E-Store/E-Store/Views/Product/_ProductThumbnailUserPartialView.cshtml"
@@ -126,7 +133,7 @@ AddHtmlAttributeValue("", 104, Model.Url, 104, 10, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n    </div>\n\n    <div class=\"product-caption\">\n        <h4>\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5405cb1cb84b64ddd1a9e4a33794be06c6f07c917451", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5405cb1cb84b64ddd1a9e4a33794be06c6f07c917625", async() => {
 #nullable restore
 #line 12 "/home/dimitar/RiderProjects/E-Store/E-Store/Views/Product/_ProductThumbnailUserPartialView.cshtml"
                                        Write(Model.Title);
@@ -244,7 +251,7 @@ WriteAttributeValue("", 1338, Model.Rating, 1338, 13, false);
 #nullable disable
             EndWriteAttribute();
             WriteLiteral("></rating>\n    </div>\n    <div>\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5405cb1cb84b64ddd1a9e4a33794be06c6f07c9112451", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5405cb1cb84b64ddd1a9e4a33794be06c6f07c9112625", async() => {
                 WriteLiteral("\n            <div class=\"form-group\">\n                <input type=\"hidden\" name=\"ProductId\"");
                 BeginWriteAttribute("value", " value=\"", 1547, "\"", 1571, 1);
 #nullable restore

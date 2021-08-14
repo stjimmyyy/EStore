@@ -47,8 +47,15 @@ using E_Store.Models.Person;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "/home/dimitar/RiderProjects/E-Store/E-Store/Views/_ViewImports.cshtml"
+using E_Store.Models.Setting;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b57a8614a540134e1cef0bfcaa3896d79e981d9e", @"/Views/Product/_ProductThumbnailAdminPartialView.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7feb16b69d71633aa9713f0953a224a087371c93", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a42775dd580e916de7f010862b646ae88f29dedb", @"/Views/_ViewImports.cshtml")]
     public class Views_Product__ProductThumbnailAdminPartialView : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Product", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -86,7 +93,7 @@ using E_Store.Models.Person;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("<div class=\"thumbnail\">\n\n    <div class=\"product-image text-center\">\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b57a8614a540134e1cef0bfcaa3896d79e981d9e6350", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b57a8614a540134e1cef0bfcaa3896d79e981d9e6524", async() => {
                 WriteLiteral("\n");
 #nullable restore
 #line 5 "/home/dimitar/RiderProjects/E-Store/E-Store/Views/Product/_ProductThumbnailAdminPartialView.cshtml"
@@ -131,7 +138,7 @@ AddHtmlAttributeValue("", 104, Model.Url, 104, 10, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n    </div>\n\n    <div class=\"product-caption\">\n        <h4>\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b57a8614a540134e1cef0bfcaa3896d79e981d9e8891", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b57a8614a540134e1cef0bfcaa3896d79e981d9e9065", async() => {
 #nullable restore
 #line 12 "/home/dimitar/RiderProjects/E-Store/E-Store/Views/Product/_ProductThumbnailAdminPartialView.cshtml"
                                        Write(Model.Title);
@@ -161,7 +168,7 @@ AddHtmlAttributeValue("", 458, Model.Url, 458, 10, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b57a8614a540134e1cef0bfcaa3896d79e981d9e10612", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b57a8614a540134e1cef0bfcaa3896d79e981d9e10786", async() => {
                 WriteLiteral("<span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>");
             }
             );
@@ -194,7 +201,7 @@ AddHtmlAttributeValue("", 458, Model.Url, 458, 10, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b57a8614a540134e1cef0bfcaa3896d79e981d9e13059", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b57a8614a540134e1cef0bfcaa3896d79e981d9e13233", async() => {
                 WriteLiteral("<span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>");
             }
             );
@@ -316,7 +323,7 @@ WriteAttributeValue("", 1722, Model.Rating, 1722, 13, false);
 #nullable disable
             EndWriteAttribute();
             WriteLiteral("></rating>\n    </div>\n    <div>\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b57a8614a540134e1cef0bfcaa3896d79e981d9e18880", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b57a8614a540134e1cef0bfcaa3896d79e981d9e19054", async() => {
                 WriteLiteral("\n            <div class=\"form-group\">\n                <input type=\"hidden\" name=\"ProductId\"");
                 BeginWriteAttribute("value", " value=\"", 1931, "\"", 1955, 1);
 #nullable restore
@@ -352,7 +359,7 @@ WriteAttributeValue("", 1939, Model.ProductId, 1939, 16, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n    </div>\n    <div>\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b57a8614a540134e1cef0bfcaa3896d79e981d9e21589", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b57a8614a540134e1cef0bfcaa3896d79e981d9e21763", async() => {
                 WriteLiteral("\n            <div class=\"form-group\">\n                <input type=\"hidden\" name=\"ProductId\"");
                 BeginWriteAttribute("value", " value=\"", 2517, "\"", 2541, 1);
 #nullable restore

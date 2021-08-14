@@ -1,4 +1,4 @@
-@model E_Store.Models.Product.ProductDetailViewModel
+@model ProductDetailViewModel
 
 <link href="~/css/ProductIndex.css" rel="stylesheet" />
 @{
@@ -73,7 +73,7 @@
                 }
             }
             <span class="pull-right">
-                @Model.Product.Price.ToString("c")
+                @Html.Price(Model.Product.Price, Model.IsVatPayer, Model.Vat)
             </span>
         </h4>
         <h5>

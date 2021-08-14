@@ -9,21 +9,18 @@ namespace E_Store.Models.Product
     public class ProductIndexViewModel
     {
         public IPagedList<Product> Products { get; set; }
-        
         public decimal? StartPrice { get; set; }
-        
         public decimal? EndPrice { get; set; }
-        
         public bool InStock { get; set; }
-        
         public string SortCriteria { get; set; }
         
-        public int? CurrentCategoryId { get; set; }
+        public int Vat { get; set; }
         
+        public bool IsVatPayer { get; set; }
+        public int? CurrentCategoryId { get; set; }
         public string CurrentPhrase { get; set; }
 
         public double Rating { get; set; }
-
         public List<SelectListItem> SortList { get; set; } = new List<SelectListItem>()
         {
             new SelectListItem() { Text = "Rating",      Value = "rating" },

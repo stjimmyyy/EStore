@@ -59,5 +59,35 @@ namespace E_Store.Extensions
 
             return new StringHtmlContent(string.Empty);
         }
+
+        public static IHtmlContent PriceWithVat(this IHtmlHelper helper, decimal price, int vat, bool round = false)
+        {
+            var amount = (double) price * (1 + (vat / 100.0));
+
+            amount = round
+                ? Math.Round(amount)
+                : Math.Round(amount, 2);
+
+            return new HtmlContentBuilder().AppendHtml($"<span> ${amount} </span>");
+        }
+
+        public static IHtmlContent VatFromPrice(this IHtmlHelper helper, decimal price, int vat, bool round = false)
+        {
+            var amount = (double) price * (vat / 100.0);
+
+            amount = round ? Math.Round(amount) : Math.Round(amount, 2);
+
+            return new HtmlContentBuilder().AppendHtml($"<span> ${amount} </span>");
+        }
+
+        public static IHtmlContent Price(this IHtmlHelper helper, decimal price, bool vatPayer, int vat)
+        {
+            if (vatPayer)
+            {
+                price = (int) Math.Round(((double) price * (1 + (vat / 100.0))));
+            }
+
+            return new HtmlContentBuilder().AppendHtml($"<span> ${price} </span>");
+        }
     }
 }

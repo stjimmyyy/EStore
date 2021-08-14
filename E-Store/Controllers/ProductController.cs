@@ -19,17 +19,21 @@ namespace E_Store.Controllers
     {
         private readonly IProductManager productManager;
         private readonly ICategoryManager categoryManager;
-
+        private readonly IAccountingSettingManager accountingSettingManager;
+        
         private const int pageSize = 6;
 
-        public ProductController(ICategoryManager categoryManager, IProductManager productManager)
+        public ProductController(ICategoryManager categoryManager, 
+            IProductManager productManager,
+            IAccountingSettingManager accountingSettingManager)
         {
             this.productManager = productManager;
             this.categoryManager = categoryManager;
+            this.accountingSettingManager = accountingSettingManager;
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Manage(string url)
         {
             var model = new ManageProductViewModel
@@ -113,6 +117,10 @@ namespace E_Store.Controllers
                     .ToPagedList(page ?? 1, pageSize);
             }
 
+            var setting = this.accountingSettingManager.GetSetting();
+            model.IsVatPayer = !string.IsNullOrEmpty(setting.Seller.PersonDetail.TaxNumber);
+            model.Vat = setting.Vat;
+
             ViewData["SearchPhrase"] = searchPhrase;
 
             return View(model);
@@ -142,9 +150,13 @@ namespace E_Store.Controllers
 
         public IActionResult Detail(string url)
         {
+            var setting = this.accountingSettingManager.GetSetting();
+            
             var model = new ProductDetailViewModel
             {
-                Product = this.productManager.FindProductByUrl(url)
+                Product = this.productManager.FindProductByUrl(url),
+                IsVatPayer = !string.IsNullOrEmpty(setting.Seller.PersonDetail.TaxNumber),
+                Vat = setting.Vat
             };
 
             return View(model);
