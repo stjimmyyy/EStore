@@ -1,10 +1,10 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using E_Store.Models;
-
-namespace E_Store.Controllers
+﻿namespace E_Store.Controllers
 {
+    using System.Diagnostics;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
+    using Models;
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

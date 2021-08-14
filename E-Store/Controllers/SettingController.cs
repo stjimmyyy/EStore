@@ -1,11 +1,10 @@
-using E_Store.Classes;
-using E_Store.Extensions;
-
 namespace E_Store.Controllers
 {
     using System.Collections.Generic;
     using System.Linq;
 
+    using Classes;
+    using Extensions;
     using Models.Setting;
     using E_Store.Data.Models;
     using Business.Interfaces;
@@ -13,8 +12,6 @@ namespace E_Store.Controllers
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
-
-    
     public class SettingController : Controller
     {
         private readonly IAccountingSettingManager settingManager;
@@ -31,7 +28,6 @@ namespace E_Store.Controllers
             this.settingManager = manager;
             this.personManager = personManager;
         }
-
         public IActionResult Index()
         {
             var model = new SettingViewModel

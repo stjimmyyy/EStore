@@ -28,6 +28,10 @@ namespace E_Store.Data.Data
         public DbSet<PersonDetail> PersonDetails { get; set; }
         
         public DbSet<AccountingSetting> AccountingSettings { get; set; }
+        
+        public DbSet<EOrder> EOrders { get; set; }
+        
+        public DbSet<ProductEOrder> ProductEOrders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

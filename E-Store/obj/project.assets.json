@@ -2578,10 +2578,7 @@
         },
         "runtime": {
           "bin/placeholder/E-Store.Business.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       },
       "E-Store.Data/1.0.0": {
         "type": "project",
@@ -2597,10 +2594,7 @@
         },
         "runtime": {
           "bin/placeholder/E-Store.Data.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       }
     }
   },
