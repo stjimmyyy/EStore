@@ -3,8 +3,9 @@ namespace E_Store.Business.Interfaces
     using Data.Models;
     public interface IPersonManager
     {
-        Person FindByUserId(string id);
 
+        Person FindById(int id);
+        Person FindByUserId(string id);
         Person InsertOrEdit(
             PersonDetail personDetail,
             Address address,
@@ -14,7 +15,6 @@ namespace E_Store.Business.Interfaces
             int? personId = null,
             string userId = null,
             bool save = true);
-
         void InsertOrEdit(Person person);
     }
 }

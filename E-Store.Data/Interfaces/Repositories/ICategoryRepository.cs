@@ -6,9 +6,10 @@ namespace E_Store.Data.Interfaces.Repositories
 
     public interface ICategoryRepository : IRepository<Category>
     {
-        List<Category> GetLeaves();
+        List<Category> GetLeaves(bool includeHidden = false);
 
         List<Category> GetRoots();
 
+        Category GetPaymentCategory();
     }
 }

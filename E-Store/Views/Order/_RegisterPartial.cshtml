@@ -1,0 +1,14 @@
+@model PersonRegisterViewModel
+
+<h3> Zákaznický účet </h3>
+
+<div class="form-group">
+    <label asp-for="Password"></label>
+    <input asp-for="Password" title="Enter a password at least 6 characters long" type="password" pattern=".{6,}" class="form-control" />
+    <span asp-validation-for="Password" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="PasswordRepeat"></label>
+    <input asp-for="PasswordRepeat" title="Enter a password at least 6 characters long" type="password" pattern=".{6,}" class="form-control" />
+    <span asp-validation-for="PasswordRepeat" class="text-danger"></span>
+</div>

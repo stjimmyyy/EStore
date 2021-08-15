@@ -1,10 +1,9 @@
-using E_Store.Data.Data;
-
 namespace E_Store.Data.Interfaces.Repositories
 {
     using System.Collections.Generic;
     using System.Linq;
-    
+
+    using Data;
     using Models;
 
     public class CategoryRepository : BaseRepository<Category>, ICategoryRepository
@@ -16,7 +15,9 @@ namespace E_Store.Data.Interfaces.Repositories
             
         }
 
-        public List<Category> GetLeaves()
+        public Category GetPaymentCategory() => this.dbSet.SingleOrDefault(x => x.Url == "delivery-methods");
+        
+        public List<Category> GetLeaves(bool includeHidden = false)
         {
             return this.dbSet
                 .Where(x => x.ChildCategories.Count == 0 && !x.Hidden)

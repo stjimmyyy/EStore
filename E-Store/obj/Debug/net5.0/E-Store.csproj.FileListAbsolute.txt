@@ -128,3 +128,12 @@
 /home/dimitar/RiderProjects/E-Store/E-Store/bin/Debug/net5.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 /home/dimitar/RiderProjects/E-Store/E-Store/obj/Debug/net5.0/Razor/Views/Account/Edit.cshtml.g.cs
 /home/dimitar/RiderProjects/E-Store/E-Store/obj/Debug/net5.0/Razor/Views/Setting/Index.cshtml.g.cs
+/home/dimitar/RiderProjects/E-Store/E-Store/obj/Debug/net5.0/Razor/Views/Home/Contact.cshtml.g.cs
+/home/dimitar/RiderProjects/E-Store/E-Store/obj/Debug/net5.0/Razor/Views/Order/Index.cshtml.g.cs
+/home/dimitar/RiderProjects/E-Store/E-Store/obj/Debug/net5.0/Razor/Views/Order/Payment.cshtml.g.cs
+/home/dimitar/RiderProjects/E-Store/E-Store/obj/Debug/net5.0/Razor/Views/Order/RegisterOrder.cshtml.g.cs
+/home/dimitar/RiderProjects/E-Store/E-Store/obj/Debug/net5.0/Razor/Views/Order/Summary.cshtml.g.cs
+/home/dimitar/RiderProjects/E-Store/E-Store/obj/Debug/net5.0/Razor/Views/Order/_RegisterPartial.cshtml.g.cs
+/home/dimitar/RiderProjects/E-Store/E-Store/bin/Debug/net5.0/MailKit.dll
+/home/dimitar/RiderProjects/E-Store/E-Store/bin/Debug/net5.0/MimeKit.dll
+/home/dimitar/RiderProjects/E-Store/E-Store/bin/Debug/net5.0/BouncyCastle.Crypto.dll

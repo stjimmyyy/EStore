@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Identity;
+
 namespace E_Store.Data.Data
 {
     using System.Linq;
@@ -72,6 +74,10 @@ namespace E_Store.Data.Data
                 .HasOne(p => p.User)
                 .WithOne(u => u.Person)
                 .IsRequired(false);
+
+            builder.Entity<IdentityRole>()
+                .HasData(new IdentityRole("User"),
+                    new IdentityRole("Admin"));
 
             var cascadeFks = from type in builder.Model.GetEntityTypes()
                 from foreignKey in type.GetForeignKeys()

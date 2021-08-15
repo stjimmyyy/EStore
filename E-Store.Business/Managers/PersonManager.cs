@@ -24,6 +24,7 @@ namespace E_Store.Business.Managers
             this.bankAccountRepository = bankAccountRepository;
         }
 
+        public Person FindById(int id) => this.personRepository.FindById(id);
         public Person FindByUserId(string id) => this.personRepository.FindByUserId(id);
 
         public Person InsertOrEdit(PersonDetail personDetail, Address address, Address deliveryAddress, BankAccount bankAccount,

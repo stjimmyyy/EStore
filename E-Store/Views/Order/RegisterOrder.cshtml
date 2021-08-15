@@ -1,0 +1,48 @@
+@model PersonRegisterViewModel
+
+@{
+    ViewData["Title"] = "Register order";
+}
+
+<h2>@ViewData["Title"]</h2>
+@Html.OrderState(1, false)
+@{
+    if (!User.Identity.IsAuthenticated)
+    {
+        <p>
+            <a asp-action="Login" asp-controller="Account" asp-route-returnUrl="/Order/Payment" class="btn btn-default">Login</a>
+            to your customer account or continue a one-time purchase. You can also create a customer account in one step.
+        </p>
+    }
+}
+
+<form asp-action="RegisterOrder" asp-controller="Order" method="post">
+    <div class="form-horizontal">
+        @{
+            if (!User.Identity.IsAuthenticated)
+            {
+                <div class="form-group">
+                    @Html.CheckBox("createAccount", false)
+                    <label for="createAccount">Create customer account</label>
+                </div>
+            }
+        }
+        <div id="registerPart">
+            @await Html.PartialAsync("_RegisterPartial")
+        </div>
+        @await Html.PartialAsync("_PersonPartial")
+
+        <div class="form-group">
+            <input type="submit" value="Send" class="btn btn-primary" />
+        </div>
+    </div>
+</form>
+
+@section scripts{
+    <script>
+        $('#registerPart').hide();
+        $('#createAccount').on('change', function () {
+            $('#registerPart').toggle();
+        })
+    </script>
+}

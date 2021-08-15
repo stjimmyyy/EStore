@@ -20,16 +20,19 @@ namespace E_Store.Controllers
         private readonly IProductManager productManager;
         private readonly ICategoryManager categoryManager;
         private readonly IAccountingSettingManager accountingSettingManager;
+        private readonly IOrderManager orderManager;
         
         private const int pageSize = 6;
 
         public ProductController(ICategoryManager categoryManager, 
             IProductManager productManager,
-            IAccountingSettingManager accountingSettingManager)
+            IAccountingSettingManager accountingSettingManager,
+            IOrderManager orderManager)
         {
             this.productManager = productManager;
             this.categoryManager = categoryManager;
             this.accountingSettingManager = accountingSettingManager;
+            this.orderManager = orderManager;
         }
 
         [HttpGet]
@@ -62,7 +65,7 @@ namespace E_Store.Controllers
                     ? "New product"
                     : "Edit product";
 
-                model.AvailableCategories = categoryManager.GetLeaves();
+                model.AvailableCategories = categoryManager.GetLeaves(true);
                 
                 this.AddFlashMessage("Invalid product parameters!", FlashMessageType.Danger);
                 return this.View(model);
@@ -70,13 +73,13 @@ namespace E_Store.Controllers
 
             var allCategories = categoryManager.GetLeaves();
 
-            int[] selectedCategories = allCategories
+            var selectedCategories = allCategories
                 .Where(c => model.PostedCategories[allCategories.IndexOf(c)])
                 .Select(c => c.Id)
                 .ToArray();
 
-            int oldProductId = model.Product.Id;
-            int oldImagesCount = model.Product.ImagesCount;
+            var oldProductId = model.Product.Id;
+            var oldImagesCount = model.Product.ImagesCount;
             
             productManager.SaveProduct(model.Product);
             categoryManager.UpdateProductCategories(model.Product.Id, selectedCategories);
@@ -147,7 +150,6 @@ namespace E_Store.Controllers
 
             return Redirect(Request.Headers["Referer"].ToString());
         }
-
         public IActionResult Detail(string url)
         {
             var setting = this.accountingSettingManager.GetSetting();
@@ -160,6 +162,14 @@ namespace E_Store.Controllers
             };
 
             return View(model);
+        }
+
+        public IActionResult ProcessCartForm(int productId, int quantity)
+        {
+            this.orderManager.AddProducts(productId, quantity);
+            this.AddFlashMessage(new FlashMessage("The goods has been added to the cart.", FlashMessageType.Success));
+
+            return Redirect(Request.Headers["Referer"].ToString());
         }
     }
 }

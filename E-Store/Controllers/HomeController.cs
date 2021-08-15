@@ -1,5 +1,11 @@
-﻿namespace E_Store.Controllers
+﻿using E_Store.Business.Interfaces;
+using E_Store.Classes;
+using E_Store.Extensions;
+
+namespace E_Store.Controllers
 {
+    using E_Store.Models.Contact;
+
     using System.Diagnostics;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
@@ -7,11 +13,29 @@
 
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        
+        private readonly IEmailSender emailSender;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IEmailSender emailSender)
         {
-            _logger = logger;
+            this.emailSender = emailSender;
+        }
+
+        [HttpGet]
+        public IActionResult Contact() => View();
+
+        [HttpPost]
+        public IActionResult Contact(ContactViewModel model)
+        {
+            if (ModelState.IsValid)
+                return View(model);
+            
+            this.emailSender.SendEmail("dafgasg94@gmail.com", model.Subject, model.MessageBody, model.SenderEmail);
+            
+            this.AddFlashMessage("The message has been sent successfully", FlashMessageType.Success);
+
+            return RedirectToAction("Index");
+
         }
 
         public IActionResult Index()

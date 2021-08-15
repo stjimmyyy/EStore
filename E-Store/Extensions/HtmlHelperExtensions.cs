@@ -76,5 +76,34 @@ namespace E_Store.Extensions
 
             return new HtmlContentBuilder().AppendHtml(ulTag);
         }
+
+        public static IHtmlContent Address(this IHtmlHelper helper, Address address)
+        {
+            var firstLine = address.Street + " " + address.RegistryNumber;
+
+            if (address.OrientationNumber.HasValue)
+                firstLine += " / " + address.OrientationNumber.Value;
+
+            return new HtmlContentBuilder()
+                .AppendHtml($@"<div>
+                                {firstLine}<br />
+                                {address.City}<br />
+                                {address.Zip}
+                            </div>");
+        }
+
+        public static IHtmlContent CustomerName(this IHtmlHelper helper, PersonDetail personDetail)
+        {
+            string result;
+
+            if (!string.IsNullOrEmpty(personDetail.CompanyName))
+                result = $"<span>{personDetail.CompanyName}</span>";
+            else if (string.IsNullOrEmpty(personDetail.FullName))
+                result = "<span>End customer </span>";
+            else
+                result = $"<span>{personDetail.FullName}</span>";
+
+            return new HtmlContentBuilder().AppendHtml(result);
+        }
     }
 }

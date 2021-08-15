@@ -1,9 +1,10 @@
-using System;
-using System.Linq;
 
 namespace E_Store.Business.Managers
 {
+    using System;
+    using System.Linq;
     using System.IO;
+    
     using Classes;
     using E_Store.Data.Interfaces.Repositories;
 
@@ -52,7 +53,18 @@ namespace E_Store.Business.Managers
         {
             date = date.Date;
 
-            return GetAllSettings().Single(x => x.ValidFrom <= date && x.ValidTo >= date);
+            var settings = GetAllSettings().SingleOrDefault(x => x.ValidFrom <= date && x.ValidTo >= date);
+
+            return settings ?? throw new Exception("No settings in the Db");
+        }
+
+        public decimal GetCurrentTaxCoefficient()
+        {
+            var currentSetting = GetSetting();
+
+            return string.IsNullOrEmpty(currentSetting.Seller.PersonDetail.TaxNumber)
+                ? 1
+                : (decimal) (1 + currentSetting.Vat / 100.0);
         }
     }
 }

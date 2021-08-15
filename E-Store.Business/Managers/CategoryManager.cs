@@ -1,5 +1,3 @@
-using Microsoft.Extensions.Caching.Memory;
-
 namespace E_Store.Business.Managers
 {
     using System;
@@ -9,6 +7,8 @@ namespace E_Store.Business.Managers
     using Interfaces;
     using Data.Models;
     using E_Store.Data.Interfaces.Repositories;
+
+    using Microsoft.Extensions.Caching.Memory;
 
     public class CategoryManager : ICategoryManager
     {
@@ -25,7 +25,7 @@ namespace E_Store.Business.Managers
             this.memoryCache = memoryCache;
         }
         
-        public List<Category> GetLeaves()
+        public List<Category> GetLeaves(bool includeHidden = false)
         {
             return this.categoryRepository.GetLeaves();
         }

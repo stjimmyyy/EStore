@@ -4,7 +4,7 @@ namespace E_Store
     using Business.Managers;
     using Data.Interfaces.Repositories;
     using Data.Infrastructure.Extensions;
-
+    using E_Store.Business.Classes;
     using Extensions;
     using E_Store.Data.Data;
     using E_Store.Data.Models;
@@ -59,12 +59,17 @@ namespace E_Store
             services.AddScoped<IBankAccountRepository, BankAccountRepository>();
             services.AddScoped<IEOrderRepository, EOrderRepository>();
             services.AddScoped<IProductEOrderRepository, ProductEOrderRepository>();
+
+            services.AddScoped<IEmailSender, EmailSender>();
             
             services.AddScoped<ICategoryManager, CategoryManager>();
             services.AddScoped<IProductManager, ProductManager>();
             services.AddScoped<IReadOnlyManager, ReadOnlyManager>();
             services.AddScoped<IPersonManager, PersonManager>();
+            services.AddScoped<IOrderManager, OrderManager>();
             services.AddScoped<IAccountingSettingManager, AccountingSettingManager>();
+
+            services.AddSingleton(Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>());
 
 
             services.AddAutoMapper(typeof(Startup));

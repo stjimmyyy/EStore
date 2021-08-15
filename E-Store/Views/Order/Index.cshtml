@@ -1,0 +1,66 @@
+@model OrderIndexViewModel
+ @Html.OrderState(0, @User.Identity.IsAuthenticated, Model.OrderItems.ToArray().Length == 0)
+
+
+
+<form method="post" id="cart-management">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in @Model.OrderItems)
+                {
+                    <tr>
+                        <td>@item.Title</td>
+                        <td>
+                            <input type="number" name="quantity_@item.ProductId" class="form-control input-quantity" value="@item.Quantity" />
+                            <button type="button" class="btn btn-default remove-button">
+                                <span class="glyphicon glyphicon-remove"></span> Remove
+                            </button>
+                        </td>
+                        <td>@string.Format("$ {0}", item.Price * item.Quantity)</td>
+                    </tr>
+                }
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Total</th>
+                <td>@Model.OrderSummary.Products</td>
+                <td><strong>@string.Format("$ {0}", Model.OrderSummary.Price)</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="text-center">
+        <a asp-action="Index" asp-controller="Home" class="btn btn-primary">Continue shopping</a>
+        @{
+            if (Model.OrderItems.ToArray().Length != 0)
+            {
+                <button type="submit" class="btn btn-primary">Refresh</button>
+                if (User.Identity is {IsAuthenticated: true })
+                {
+                    <a asp-action="Payment" class="btn btn-primary">To checkout</a>
+                }
+                else
+                {
+                    <a asp-action="RegisterOrder" class="btn btn-primary">To checkout</a>
+                }
+            }
+        }
+    </div>
+</form>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#cart-management .remove-button").click(function () {
+                $(this).prev().val(0);
+            });
+        });
+    </script>
+}

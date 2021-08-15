@@ -1,0 +1,24 @@
+@model OrderPaymentViewModel
+
+
+@{
+    ViewData["Title"] = "Delivery method";
+}
+
+<h2>@ViewData["Title"]</h2>
+@Html.OrderState(2, User.Identity.IsAuthenticated)
+<h3>Delivery method</h3>
+<form>
+    @{
+        bool isChecked = true;
+        foreach (var item in Model.PaymentMethods)
+        {
+            string id = "deliveryProductId" + item.Value;
+            @Html.RadioButton("deliveryProductId", item.Value, isChecked, new { id = @id })@:&nbsp;
+            <label for="@id"> @item.Text</label> <br />
+            isChecked = false;
+        }
+    }
+    <br />
+    <input type="submit" value="Continue" class="btn btn-primary" />
+</form>

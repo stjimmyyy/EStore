@@ -1,6 +1,7 @@
 namespace E_Store.Extensions
 {
     using System;
+    using System.Linq;
     
     using Newtonsoft.Json;
 
@@ -88,6 +89,51 @@ namespace E_Store.Extensions
             }
 
             return new HtmlContentBuilder().AppendHtml($"<span> ${price} </span>");
+        }
+
+        public static IHtmlContent OrderState(this IHtmlHelper helper, byte state, bool registered,
+            bool isCartEmpty = false)
+        {
+            var items = new[]
+            {
+                new { icon = "shopping-cart",   title = "Cart",     href = "/Order",                visible = true },
+                new { icon = "user",            title = "Customer",     href = "/Order/RegisterOrder",  visible = !registered },
+                new { icon = "credit-card",     title = "Payment",      href = "/Order/payment",        visible = true },
+                new { icon = "list-alt",        title = "Summary",  href = "/Order/summary",    visible = true },
+            }.ToList();
+
+            var table = new TagBuilder("table");
+            
+            table.AddCssClass("table text-center table vertical-center");
+            table.Attributes.Add("id", "order-state");
+
+            var topRow = new TagBuilder("tr");
+            var bottomRow = new TagBuilder("tr");
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                var item = items[i];
+                if(!item.visible)
+                    continue;
+
+                var additionalClass = state == i
+                    ? "text-primary"
+                    : "";
+                var href = isCartEmpty
+                    ? "#"
+                    : item.href;
+                topRow.InnerHtml.AppendHtml(
+                    $"<td class=\"col-md-1\"><a href=\"{href}\"><span class=\"glyphicon glyphicon-{item.icon} large-icon {additionalClass}\"></span></a></td>");
+                bottomRow.InnerHtml.AppendHtml(
+                    $"<td><a href=\"{href}\" class=\"{additionalClass}\">{item.title}</a></td>");
+            }
+
+            table.InnerHtml
+                .AppendHtml(topRow)
+                .AppendHtml(bottomRow);
+
+            return new HtmlContentBuilder()
+                .AppendHtml(table);
         }
     }
 }

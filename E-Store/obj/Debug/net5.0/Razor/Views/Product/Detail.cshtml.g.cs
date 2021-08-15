@@ -68,8 +68,22 @@ using E_Store.Extensions;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 9 "/home/dimitar/RiderProjects/E-Store/E-Store/Views/_ViewImports.cshtml"
+using E_Store.Models.Order;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 10 "/home/dimitar/RiderProjects/E-Store/E-Store/Views/_ViewImports.cshtml"
+using E_Store.Models.Contact;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e0885e74f93920f851e10b078566610f79ac0b61", @"/Views/Product/Detail.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a6a5a0e5dd26344f2d222d66840d6a8f62fceb20", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4ecc3acad7d53b0f0df8237042679c07db4bb0c9", @"/Views/_ViewImports.cshtml")]
     public class Views_Product_Detail : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ProductDetailViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("href", new global::Microsoft.AspNetCore.Html.HtmlString("~/css/ProductIndex.css"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -113,7 +127,7 @@ using E_Store.Extensions;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e0885e74f93920f851e10b078566610f79ac0b618685", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e0885e74f93920f851e10b078566610f79ac0b619032", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -295,7 +309,7 @@ WriteAttributeValue("", 1653, Url.Content(path), 1653, 18, false);
 #line hidden
 #nullable disable
             WriteLiteral("                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0885e74f93920f851e10b078566610f79ac0b6115699", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0885e74f93920f851e10b078566610f79ac0b6116046", async() => {
                 WriteLiteral("<span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>");
             }
             );
@@ -328,7 +342,7 @@ WriteAttributeValue("", 1653, Url.Content(path), 1653, 18, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0885e74f93920f851e10b078566610f79ac0b6118143", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0885e74f93920f851e10b078566610f79ac0b6118490", async() => {
                 WriteLiteral("<span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>");
             }
             );
@@ -485,7 +499,7 @@ WriteAttributeValue("", 3986, Model.Product.Rating, 3986, 21, false);
 #line hidden
 #nullable disable
             WriteLiteral("&nbsp; reviews\n        </p>\n    </div>\n\n\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0885e74f93920f851e10b078566610f79ac0b6124817", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0885e74f93920f851e10b078566610f79ac0b6125164", async() => {
                 WriteLiteral("\n        <div class=\"form-group\">\n            <input type=\"hidden\" name=\"ProductId\"");
                 BeginWriteAttribute("value", " value=\"", 4253, "\"", 4278, 1);
 #nullable restore
@@ -534,7 +548,7 @@ WriteAttributeValue("", 4261, Model.Product.Id, 4261, 17, false);
 #line hidden
 #nullable disable
             WriteLiteral("            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0885e74f93920f851e10b078566610f79ac0b6127985", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0885e74f93920f851e10b078566610f79ac0b6128332", async() => {
                 WriteLiteral("\n                <div class=\"form-group\">\n                    <input type=\"hidden\" name=\"ProductId\"");
                 BeginWriteAttribute("value", " value=\"", 4864, "\"", 4889, 1);
 #nullable restore
@@ -599,7 +613,7 @@ WriteAttributeValue("", 4872, Model.Product.Id, 4872, 17, false);
 #line hidden
 #nullable disable
             WriteLiteral("    \n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0885e74f93920f851e10b078566610f79ac0b6131442", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0885e74f93920f851e10b078566610f79ac0b6131789", async() => {
                 WriteLiteral("\n        <input name=\"rating\" id=\"rating\"");
                 BeginWriteAttribute("value", " value=\"", 5678, "\"", 5686, 0);
                 EndWriteAttribute();
@@ -731,7 +745,7 @@ WriteAttributeValue("", 6632, review.Rating, 6632, 14, false);
             WriteLiteral("</div>\n\n");
             DefineSection("scripts", async() => {
                 WriteLiteral("\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0885e74f93920f851e10b078566610f79ac0b6137872", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0885e74f93920f851e10b078566610f79ac0b6138219", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

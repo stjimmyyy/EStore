@@ -93,3 +93,31 @@ body {
   position: relative;
   right: 5px;
 }
+
+#order-state a:not(.text-primary) {
+  color: grey;
+}
+
+#order-state a:hover {
+  color: #337ab7;
+}
+
+#order-state {
+  table-layout: fixed;
+}
+
+.table-vertical-center td {
+  vertical-align: middle !important;
+}
+
+#cart-management input:not([type="submit"]) {
+  max-width: 48px;
+  width: 48px;
+  min-width: 48px;
+  float:left;
+  margin-right: 12px;
+}
+
+.large-icon{
+  font-size: 200%;
+}

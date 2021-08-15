@@ -2,7 +2,9 @@ namespace E_Store.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using Newtonsoft.Json;
 
+    [JsonObject(IsReference = true)]
     public class Person
     {
         [Key]
